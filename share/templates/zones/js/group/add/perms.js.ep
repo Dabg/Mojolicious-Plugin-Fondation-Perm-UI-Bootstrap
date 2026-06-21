@@ -1,13 +1,13 @@
 <script>
 /**
  * Called by DatatableGroup.js when editing a group.
- * Fetches all permissions and checks the ones the group has.
+ * Fetches all permissions and selects the ones the group has.
  * @param {object} group - The group object (with group.perms array)
  */
 function loadPerms(group) {
     $.getJSON('/api/perm', function(allPerms) {
-        var container = $('#perms-checkboxes');
-        container.empty();
+        var sel = $('#perms');
+        sel.empty();
 
         var groupPermIds = {};
         if (group && group.perms) {
@@ -18,17 +18,11 @@ function loadPerms(group) {
 
         for (var i = 0; i < allPerms.length; i++) {
             var p = allPerms[i];
-            var checked = groupPermIds[p.id] ? ' checked' : '';
-            container.append(
-                '<div class="form-check">' +
-                '<input class="form-check-input perm-checkbox" type="checkbox" ' +
-                'value="' + p.id + '" id="perm-' + p.id + '"' + checked + '>' +
-                '<label class="form-check-label" for="perm-' + p.id + '">' +
-                p.code + '</label>' +
-                '</div>'
-            );
+            var selected = groupPermIds[p.id] ? ' selected' : '';
+            sel.append('<option value="' + p.id + '"' + selected + '>' + p.code + '</option>');
         }
 
+        sel.selectpicker('refresh');
         $('#perms-group').show();
     });
 }
@@ -38,10 +32,6 @@ function loadPerms(group) {
  * Called by validateGroupForm() in DatatableGroup.js before save.
  */
 function collectPermAssignments() {
-    var ids = [];
-    $('.perm-checkbox:checked').each(function() {
-        ids.push($(this).val());
-    });
-    return ids;
+    return $('#perms').val() || [];
 }
 </script>
