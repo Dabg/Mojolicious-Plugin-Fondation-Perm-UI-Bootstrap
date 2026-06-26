@@ -1,6 +1,10 @@
 # NAME
 
-Mojolicious::Plugin::Fondation::Perm::UI::Bootstrap — permission checkboxes in group forms
+Mojolicious::Plugin::Fondation::Perm::UI::Bootstrap - Web UI extension for Fondation::Perm — injects perm checkboxes into group forms
+
+# VERSION
+
+version 0.01
 
 # SYNOPSIS
 
@@ -12,6 +16,10 @@ Mojolicious::Plugin::Fondation::Perm::UI::Bootstrap — permission checkboxes in
 Injects permission checkboxes into the group add/edit modal via Fondation
 zones (`group/add`). Provides `loadPerms()` and `collectPermAssignments()`
 JavaScript functions consumed by `DatatableGroup.js`.
+
+# NAME
+
+Mojolicious::Plugin::Fondation::Perm::UI::Bootstrap — permission checkboxes in group forms
 
 # ZONES
 
@@ -35,3 +43,14 @@ JavaScript functions consumed by `DatatableGroup.js`.
 
         Returns an array of checked permission IDs — called by `validateGroupForm()`
         in `DatatableGroup.js` before save.
+
+# AUTHOR
+
+Daniel Brosseau <dab@cpan.org>
+
+# COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2026 by Daniel Brosseau.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.

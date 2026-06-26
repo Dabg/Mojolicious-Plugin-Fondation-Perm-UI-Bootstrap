@@ -147,7 +147,7 @@ function initialiseTabPerm() {
             }
         },
         "columns": [
-            { "data": "code" },
+            { "data": "name" },
             { "data": "description" },
             {
                 "data": null,
@@ -173,12 +173,12 @@ function initialiseTabPerm() {
     $('#table-perm tbody').on('click', 'span.intSupprime', function () {
         var row = tableau.row($(this).closest("tr"));
         var idPerm = row.data().id;
-        var codePerm = row.data().code;
+        var namePerm = row.data().name;
         $('#confirmDeletePerm').modal("show");
         $('#confirmDeletePerm')
             .modal({ backdrop: 'static', keyboard: false })
             .one('click', '#deleteInt', function (e) {
-                deletePerm(idPerm, codePerm);
+                deletePerm(idPerm, namePerm);
                 $('#confirmDeletePerm').modal("hide");
             });
     });
@@ -212,7 +212,7 @@ function loadPerm(id) {
         clearModal();
         $('#perm-modal .modal-title').text(l('Edit permission'));
         $('#id').val(perm.id);
-        $('#code').val(perm.code);
+        $('#name').val(perm.name);
         $('#description').val(perm.description);
 
         $('body').css('cursor', '');
@@ -228,22 +228,22 @@ function loadPerm(id) {
  */
 function clearModal() {
     $('#id').val('');
-    $('#code').val('');
+    $('#name').val('');
     $('#description').val('');
 }
 
 /**
  * Delete a permission
  * @param {number} idPerm - Permission ID
- * @param {string} codePerm - Code for display
+ * @param {string} namePerm - Name for display
  */
-function deletePerm(idPerm, codePerm) {
+function deletePerm(idPerm, namePerm) {
     $.ajax({
         type: 'DELETE',
         url: '/api/perm/' + idPerm,
     }).done(function(data) {
         $('#table-perm').DataTable().ajax.reload(null, false);
-        successBox(l("Delete permission") + " '" + codePerm + "' OK");
+        successBox(l("Delete permission") + " '" + namePerm + "' OK");
     }).fail(function(xhr) {
         alertBox(l("Deletion failed") + "<br/><br/>" + (xhr.responseJSON?.errors?.[0]?.message || l("Unknown error")));
     });

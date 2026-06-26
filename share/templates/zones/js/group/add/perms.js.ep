@@ -19,7 +19,7 @@ function loadPerms(group) {
         for (var i = 0; i < allPerms.length; i++) {
             var p = allPerms[i];
             var selected = groupPermIds[p.id] ? ' selected' : '';
-            sel.append('<option value="' + p.id + '"' + selected + '>' + p.code + '</option>');
+            sel.append('<option value="' + p.id + '"' + selected + '>' + p.name + '</option>');
         }
 
         sel.selectpicker('refresh');

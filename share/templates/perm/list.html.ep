@@ -19,7 +19,7 @@
       <table id="table-perm" class="table table-striped hover" cellspacing="0" width="100%">
         <thead>
           <tr>
-            <th><%= l 'Code' %></th>
+            <th><%= l 'Name' %></th>
             <th><%= l 'Description' %></th>
             <th></th>
           </tr>
@@ -45,11 +45,11 @@
           <input id="id" name="id" type="hidden">
 
           <div class="form-group row">
-            <label for="code" class="col-sm-2 col-form-label text-right">
-              <%= l 'Code' %>
+            <label for="name" class="col-sm-2 col-form-label text-right">
+              <%= l 'Name' %>
             </label>
             <div class="col-sm-10">
-              <input id="code" name="code" class="form-control" type="text">
+              <input id="name" name="name" class="form-control" type="text">
             </div>
             <div class="clearfix"></div>
           </div>
