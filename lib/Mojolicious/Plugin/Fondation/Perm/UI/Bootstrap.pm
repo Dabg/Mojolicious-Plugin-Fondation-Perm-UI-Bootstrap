@@ -16,7 +16,9 @@ sub fondation_meta {
 
 sub register ($self, $app, $conf) {
 
-    $app->routes->get('/perms')->to(
+    $app->routes->get('/perms')
+      ->requires('fondation.perm' => 'perm_list')
+      ->to(
         controller => 'Perm',
         action     => 'list'
     );
