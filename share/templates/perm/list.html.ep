@@ -10,7 +10,9 @@
 
   <div id="panel-perm" class="card" style="display: none;">
     <div class="card-header d-flex justify-content-between"><%= l 'Permissions list' %>
+      % if ($c->check_perm('perm_create')) {
       <span id="menuAddPerm" class="fa fa-2x fa-plus" title="<%= l 'Add a permission' %>" data-bs-toggle="modal" data-bs-target="#perm-modal"></span>
+      % }
     </div>
 
     <div class="card-body">

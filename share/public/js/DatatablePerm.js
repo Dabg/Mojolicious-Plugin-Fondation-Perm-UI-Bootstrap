@@ -154,8 +154,8 @@ function initialiseTabPerm() {
                 "render": function (data, type, row) {
                     if (type === 'display') {
                         return loadBoutonAction([
-                            { 'droit': 'administration', 'title': l('Edit permission'), 'classe': "fa fa-edit intModifie" },
-                            { 'droit': 'administration', 'title': l('Delete permission'), 'classe': "fa fa-trash intSupprime" },
+                            { 'perm': 'perm_update', 'title': l('Edit permission'), 'classe': "fa fa-edit intModifie" },
+                            { 'perm': 'perm_delete', 'title': l('Delete permission'), 'classe': "fa fa-trash intSupprime" },
                         ]);
                     }
                     return data;
