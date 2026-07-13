@@ -3,8 +3,6 @@ use Mojo::Base 'Mojolicious::Plugin', -signatures;
 
 # ABSTRACT: Web UI extension for Fondation::Perm — injects perm checkboxes into group forms
 
-our $VERSION = '0.01';
-
 sub fondation_meta {
     return {
         dependencies => ['Fondation::Perm', 'Fondation::Layout::Bootstrap'],
