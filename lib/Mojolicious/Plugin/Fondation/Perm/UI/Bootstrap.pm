@@ -1,7 +1,9 @@
 package Mojolicious::Plugin::Fondation::Perm::UI::Bootstrap;
-use Mojo::Base 'Mojolicious::Plugin', -signatures;
 
 # ABSTRACT: Web UI extension for Fondation::Perm — injects perm checkboxes into group forms
+
+use Mojo::Base 'Mojolicious::Plugin', -signatures;
+
 
 sub fondation_meta {
     return {
@@ -31,10 +33,6 @@ __END__
 =pod
 
 =encoding UTF-8
-
-=head1 NAME
-
-Mojolicious::Plugin::Fondation::Perm::UI::Bootstrap — permission checkboxes in group forms
 
 =head1 SYNOPSIS
 
